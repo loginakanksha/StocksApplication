@@ -1,0 +1,35 @@
+buildscript {
+    repositories {
+        mavenCentral()
+    }
+    dependencies {
+        classpath("org.springframework.boot:spring-boot-gradle-plugin:2.1.4.RELEASE")
+    }
+}
+
+apply plugin: 'java'
+apply plugin: 'eclipse'
+apply plugin: 'idea'
+apply plugin: 'org.springframework.boot'
+apply plugin: 'io.spring.dependency-management'
+
+bootJar {
+    baseName = 'gs-rest-service'
+    version =  '0.1.0'
+}
+
+repositories {
+    mavenCentral()
+}
+
+sourceCompatibility = 1.8
+targetCompatibility = 1.8
+
+dependencies {
+    compile("org.springframework.boot:spring-boot-starter-web")
+    compile("com.fasterxml.jackson.jaxrs:jackson-jaxrs-json-provider:2.9.8")
+    compile("org.apache.commons:commons-lang3:3.8.1")
+    compile("org.mockito:mockito-core:2.13.0")
+    compile("org.powermock:powermock-core:1.4.6")
+    testCompile('org.springframework.boot:spring-boot-starter-test')
+}
